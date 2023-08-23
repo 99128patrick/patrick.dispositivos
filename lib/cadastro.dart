@@ -2,8 +2,17 @@
 
 import 'package:flutter/material.dart';
 
-class Cadastro extends StatelessWidget {
+class Cadastro extends StatefulWidget {
   const Cadastro({super.key});
+
+  @override
+  State<Cadastro> createState() => _CadastroState();
+}
+
+class _CadastroState extends State<Cadastro> {
+  var nomeController = TextEditingController();
+  var emailController = TextEditingController();
+  var senhaController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +25,7 @@ class Cadastro extends StatelessWidget {
         children: [
           SizedBox(height: 20),
           TextFormField(
+            controller: nomeController,
             decoration: InputDecoration(
               prefixIcon: Icon(Icons.person),
               label: Text("Informe seu Nome"),
@@ -25,6 +35,7 @@ class Cadastro extends StatelessWidget {
           ),
           SizedBox(height: 20),
           TextFormField(
+            controller: emailController,
             decoration: InputDecoration(
               prefixIcon: Icon(Icons.email),
               label: Text("Informe seu Email"),
@@ -34,6 +45,7 @@ class Cadastro extends StatelessWidget {
           ),
           SizedBox(height: 20),
           TextFormField(
+            controller: senhaController,
             decoration: InputDecoration(
               prefixIcon: Icon(Icons.email),
               label: Text("Informe sua senha"),
@@ -60,7 +72,12 @@ class Cadastro extends StatelessWidget {
           ),
           SizedBox(height: 20),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              print("o botão salvar foi clicado");
+              print(nomeController.text);
+              print(emailController.text);
+              print(senhaController.text);
+            },
             style: ElevatedButton.styleFrom(
                 backgroundColor: Color.fromARGB(255, 34, 65, 166)),
             child: Text("Salvar"),
